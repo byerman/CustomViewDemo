@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CustomViewDemo</string>
+
+    <string name="input_point_pts">填写点的坐标</string>
+    <string name="input_cancel">取消</string>
+    <string name="input_concert">确认</string>
+</resources>
