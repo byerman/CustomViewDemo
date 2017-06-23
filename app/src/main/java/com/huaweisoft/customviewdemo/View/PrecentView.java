@@ -67,7 +67,7 @@ public class PrecentView extends View {
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
             setTextPts(firstAngel / 2);
-            Log.e("baiaj","text1:"+textX+","+textY);
+            Log.e("baiaj", "text1:" + textX + "," + textY);
             canvas.drawText(firstName, textX, textY, mPaint);
         }
         if (secondPrecent != 0) {
@@ -76,7 +76,7 @@ public class PrecentView extends View {
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
             setTextPts(firstAngel + secondAngel / 2);
-            Log.e("baiaj","text2:"+textX+","+textY);
+            Log.e("baiaj", "text2:" + textX + "," + textY);
             canvas.drawText(secondName, textX, textY, mPaint);
         }
         if (thirdPrecent != 0) {
@@ -85,7 +85,7 @@ public class PrecentView extends View {
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
             setTextPts(firstAngel + secondAngel + thirdAngel / 2);
-            Log.e("baiaj","text3:"+textX+","+textY);
+            Log.e("baiaj", "text3:" + textX + "," + textY);
             canvas.drawText(thirdName, textX, textY, mPaint);
         }
         if (forthPrecent != 0) {
@@ -94,7 +94,7 @@ public class PrecentView extends View {
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
             setTextPts(firstAngel + secondAngel + thirdAngel + forthAngel / 2);
-            Log.e("baiaj","text4:"+textX+","+textY);
+            Log.e("baiaj", "text4:" + textX + "," + textY);
             canvas.drawText(forthName, textX, textY, mPaint);
         }
         mPaint.setColor(Color.WHITE);
@@ -108,7 +108,8 @@ public class PrecentView extends View {
 
     private void setTextPts(float angle) {
         // 弧度，sin,cos传进去的是弧度，不是角度
-        double rad = angle * Math.PI / 180;;
+        double rad = angle * Math.PI / 180;
+        ;
         if (angle == 360f) {
             textX = mWidth / 2;
             textY = mWidth / 2;
