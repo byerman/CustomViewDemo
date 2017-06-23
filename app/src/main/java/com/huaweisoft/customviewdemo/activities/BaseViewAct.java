@@ -1,4 +1,4 @@
-package com.huaweisoft.customviewdemo;
+package com.huaweisoft.customviewdemo.activities;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -9,18 +9,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.huaweisoft.customviewdemo.R;
 import com.huaweisoft.customviewdemo.View.MyView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class BaseViewAct extends AppCompatActivity implements View.OnClickListener{
 
     private MyView myView;
-    private Button btnSetColor, btnClear, btnPoint,btnLine,btnRect,btnRoundRect,btnOval,btnCicle,btnArc;
+    private Button btnSetColor, btnClear, btnPoint,btnLine,btnRect,btnRoundRect,btnOval,btnCicle,btnArc,btnText;
     private int[] colors = new int[]{Color.BLUE, Color.GRAY, Color.GREEN, Color.RED, Color.YELLOW, Color.WHITE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_baseview);
         initView();
         initEvent();
     }
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnOval = (Button) findViewById(R.id.btn_oval);
         btnCicle = (Button) findViewById(R.id.btn_cicle);
         btnArc = (Button) findViewById(R.id.btn_arc);
+        btnText = (Button) findViewById(R.id.btn_text);
     }
 
     private void initEvent() {
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnOval.setOnClickListener(this);
         btnCicle.setOnClickListener(this);
         btnArc.setOnClickListener(this);
+        btnText.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_arc:
                 inputArcNumber();
+                break;
+            case R.id.btn_text:
+                inputText();
                 break;
             default:
                 break;
@@ -249,6 +255,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             rectPts[i] = pointNumber;
                         }
                         myView.drawArc(rectPts[0],rectPts[1]);
+                    }
+                });
+        mBuilder.show();
+    }
+
+    private void inputText(){
+        final EditText inputEdit = new EditText(this);
+        inputEdit.setFocusable(true);
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        mBuilder.setTitle(getString(R.string.input_text_str))
+                .setView(inputEdit)
+                .setNegativeButton(getString(R.string.input_cancel),null)
+                .setPositiveButton(getString(R.string.input_concert), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String textStr = inputEdit.getText().toString();
+                        myView.drawText(textStr);
                     }
                 });
         mBuilder.show();

@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +20,7 @@ import android.view.View;
 public class MyView extends View {
 
     //    private Canvas mCanvas;
-    private Paint mPaint = new Paint();
+    private Paint mPaint;
     // 底色
     private int mColor = -1;
     // 点坐标
@@ -37,6 +38,8 @@ public class MyView extends View {
     // 圆弧角度
     private float arcStartAngle = -1;
     private float arcSweepAngle = -1;
+    // 字符串
+    private String textStr;
     // paint的颜色
     private int paintColor = Color.BLACK;
 
@@ -96,9 +99,18 @@ public class MyView extends View {
             canvas.drawArc(rect,arcStartAngle,arcSweepAngle,true,mPaint);
             mPaint.setColor(Color.BLACK);
         }
+        if (!TextUtils.isEmpty(textStr)) {
+            mPaint = new Paint();
+            mPaint.setColor(Color.BLACK);
+            mPaint.setStyle(Paint.Style.FILL);
+            mPaint.setTextSize(50);
+            canvas.drawText(textStr,200,400,mPaint);
+            initPaint();
+        }
     }
 
     private void initPaint() {
+        mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(10f);
@@ -118,15 +130,18 @@ public class MyView extends View {
         ovalX1 = 0;
         cicleX1 = 0;
         arcStartAngle = -1;
+        textStr = "";
         invalidate();
     }
 
     public void drawPoints(float[] pts) {
         ponitPts = pts;
+        invalidate();
     }
 
     public void drawLines(float[] pts) {
         linePts = pts;
+        invalidate();
     }
 
     public void drawRect(float x1, float y1, float x2, float y2) {
@@ -134,6 +149,7 @@ public class MyView extends View {
         rectX2 = x2;
         rectY1 = y1;
         rectY2 = y2;
+        invalidate();
     }
 
     public void drawRoundRect(float x1, float y1, float x2, float y2, float rx, float ry) {
@@ -143,6 +159,7 @@ public class MyView extends View {
         roundY2 = y2;
         roundRx = rx;
         roundRy = ry;
+        invalidate();
     }
 
     public void drawOval(float x1, float y1, float x2, float y2) {
@@ -150,17 +167,25 @@ public class MyView extends View {
         ovalY1 = y1;
         ovalX2 = x2;
         ovalY2 = y2;
+        invalidate();
     }
 
     public void drawCicle(float x1, float y1, float radius) {
         cicleX1 = x1;
         cicleY1 = y1;
         radiu = radius;
+        invalidate();
     }
 
     public void drawArc(float startAngle, float sweepAngle){
         arcStartAngle = startAngle;
         arcSweepAngle = sweepAngle;
+        invalidate();
+    }
+
+    public void drawText(String text){
+        textStr  = text;
+        invalidate();
     }
 
 }

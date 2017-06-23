@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CustomViewDemo</string>
 
+    <!-- baseView -->
     <string name="input_point_pts">填写点的坐标</string>
     <string name="input_line_pts">填写线的坐标</string>
     <string name="input_rect_pts">填写矩形的坐标</string>
@@ -8,6 +9,14 @@
     <string name="input_oval_pts">填写椭圆的坐标</string>
     <string name="input_cicle_pts">填写圆形的坐标</string>
     <string name="input_arc_pts">填写圆弧的角度</string>
+    <string name="input_text_str">填写需要显示的字符串</string>
     <string name="input_cancel">取消</string>
     <string name="input_concert">确认</string>
+
+    <!-- 百分比View -->
+    <string name="clothes">衣:</string>
+    <string name="eat">食:</string>
+    <string name="live">住:</string>
+    <string name="walk">行:</string>
+
 </resources>
