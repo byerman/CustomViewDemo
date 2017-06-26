@@ -34,6 +34,8 @@ public class PrecentView extends View {
     // 字体对应坐标
     private float textX;
     private float textY;
+    // 字体y偏移量
+    private float yOffset = 10;
 
     public PrecentView(Context context) {
         super(context);
@@ -55,7 +57,6 @@ public class PrecentView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.GRAY);
         mWidth = Math.min(mWidth, mHeight);
         radius = mWidth / 8 * 3;
         canvas.drawCircle(mWidth / 2, mWidth / 2, radius, mPaint);
@@ -66,7 +67,7 @@ public class PrecentView extends View {
             canvas.drawArc(rectF, 0, firstAngel, true, mPaint);
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
-            setTextPts(firstAngel / 2);
+            setTextPts(firstAngel == 360f ? 360 : firstAngel / 2);
             Log.e("baiaj", "text1:" + textX + "," + textY);
             canvas.drawText(firstName, textX, textY, mPaint);
         }
@@ -75,7 +76,11 @@ public class PrecentView extends View {
             canvas.drawArc(rectF, firstAngel, secondAngel, true, mPaint);
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
-            setTextPts(firstAngel + secondAngel / 2);
+            if (secondAngel - firstAngel == 360f){
+                setTextPts(360f);
+            }else {
+                setTextPts(firstAngel + secondAngel / 2);
+            }
             Log.e("baiaj", "text2:" + textX + "," + textY);
             canvas.drawText(secondName, textX, textY, mPaint);
         }
@@ -84,7 +89,11 @@ public class PrecentView extends View {
             canvas.drawArc(rectF, firstAngel + secondAngel, thirdAngel, true, mPaint);
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
-            setTextPts(firstAngel + secondAngel + thirdAngel / 2);
+            if (thirdAngel - firstAngel - secondAngel == 360f){
+                setTextPts(360);
+            }else {
+                setTextPts(firstAngel + secondAngel + thirdAngel / 2);
+            }
             Log.e("baiaj", "text3:" + textX + "," + textY);
             canvas.drawText(thirdName, textX, textY, mPaint);
         }
@@ -93,7 +102,11 @@ public class PrecentView extends View {
             canvas.drawArc(rectF, firstAngel + secondAngel + thirdAngel, forthAngel, true, mPaint);
             mPaint.setColor(Color.WHITE);
             mPaint.setTextSize(50);
-            setTextPts(firstAngel + secondAngel + thirdAngel + forthAngel / 2);
+            if (forthAngel - firstAngel - secondAngel - thirdAngel == 360f){
+                setTextPts(360f);
+            }else {
+                setTextPts(firstAngel + secondAngel + thirdAngel + forthAngel / 2);
+            }
             Log.e("baiaj", "text4:" + textX + "," + textY);
             canvas.drawText(forthName, textX, textY, mPaint);
         }
@@ -116,28 +129,28 @@ public class PrecentView extends View {
         } else {
             if (angle < 90f) {
                 textX = (float) (mWidth / 2 + radius / 2 * Math.cos(rad));
-                textY = (float) (mWidth / 2 + radius / 2 * Math.sin(rad));
+                textY = (float) (mWidth / 2 + radius / 2 * Math.sin(rad)) + yOffset;
             } else if (angle == 90f) {
                 textX = mWidth / 2;
-                textY = mWidth / 4 * 3;
+                textY = mWidth / 2 + radius / 2;
             } else if (angle > 90f && angle < 180f) {
                 rad = (180 - angle) * Math.PI / 180;
                 textX = (float) (mWidth / 2 - radius / 2 * Math.cos(rad));
-                textY = (float) (mWidth / 2 + radius / 2 * Math.sin(rad));
+                textY = (float) (mWidth / 2 + radius / 2 * Math.sin(rad)) + yOffset;
             } else if (angle == 180f) {
-                textX = mWidth / 4;
+                textX = mWidth / 2 - radius / 2;
                 textY = mWidth / 2;
             } else if (angle > 180f && angle < 270f) {
                 rad = (angle - 180) * Math.PI / 180;
                 textX = (float) (mWidth / 2 - radius / 2 * Math.cos(rad));
-                textY = (float) (mWidth / 2 - radius / 2 * Math.sin(rad));
+                textY = (float) (mWidth / 2 - radius / 2 * Math.sin(rad)) + yOffset;
             } else if (angle == 270f) {
                 textX = mWidth / 2;
-                textY = mWidth / 4;
+                textY = mWidth / 2 - radius / 2;
             } else if (angle > 270f && angle < 360f) {
                 rad = (360 - angle) * Math.PI / 180;
-                textX = (float) (mWidth / 2 - radius / 2 * Math.cos(rad));
-                textY = (float) (mWidth / 2 - radius / 2 * Math.sin(rad));
+                textX = (float) (mWidth / 2 + radius / 2 * Math.cos(rad));
+                textY = (float) (mWidth / 2 - radius / 2 * Math.sin(rad)) + yOffset;
             }
         }
     }
