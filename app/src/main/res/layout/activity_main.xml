@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="百分比自定义View"/>
 
+    <Button
+        android:id="@+id/btn_gotoconversion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="画布变换操作(位移,缩放,旋转,错切)"/>
+
 </LinearLayout>

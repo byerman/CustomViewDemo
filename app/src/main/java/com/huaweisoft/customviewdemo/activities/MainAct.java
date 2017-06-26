@@ -17,6 +17,7 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnGotoBaseView;
     private Button btnGotoPrecentView;
+    private Button btnGotoConversion;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,11 +30,13 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
     private void initView() {
         btnGotoBaseView = (Button) findViewById(R.id.btn_gotobase);
         btnGotoPrecentView = (Button) findViewById(R.id.btn_gotoprecent);
+        btnGotoConversion = (Button) findViewById(R.id.btn_gotoconversion);
     }
 
     private void initEvent() {
         btnGotoBaseView.setOnClickListener(this);
         btnGotoPrecentView.setOnClickListener(this);
+        btnGotoConversion.setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +47,9 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.btn_gotoprecent:
                 gotoAct(PrecentAct.class);
+                break;
+            case R.id.btn_gotoconversion:
+                gotoAct(ConversionAct.class);
                 break;
             default:
                 break;

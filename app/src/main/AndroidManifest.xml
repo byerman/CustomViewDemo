@@ -19,6 +19,7 @@
 
         <activity android:name=".activities.BaseViewAct"/>
         <activity android:name=".activities.PrecentAct"/>
+        <activity android:name=".activities.ConversionAct"/>
     </application>
 
 </manifest>

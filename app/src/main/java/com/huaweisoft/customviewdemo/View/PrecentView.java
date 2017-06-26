@@ -39,11 +39,11 @@ public class PrecentView extends View {
 
     public PrecentView(Context context) {
         super(context);
-        initPaint();
     }
 
     public PrecentView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initPaint();
     }
 
     @Override
