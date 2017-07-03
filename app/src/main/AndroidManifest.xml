@@ -21,6 +21,7 @@
         <activity android:name=".activities.PrecentAct"/>
         <activity android:name=".activities.ConversionAct"/>
         <activity android:name=".activities.CheckAct"/>
+        <activity android:name=".activities.LoaddingAct"/>
     </application>
 
 </manifest>

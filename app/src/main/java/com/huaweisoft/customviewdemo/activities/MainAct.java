@@ -19,6 +19,7 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
     private Button btnGotoPrecentView;
     private Button btnGotoConversion;
     private Button btnGotoCheckView;
+    private Button btnGotoLoaddingView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
         btnGotoPrecentView = (Button) findViewById(R.id.btn_gotoprecent);
         btnGotoConversion = (Button) findViewById(R.id.btn_gotoconversion);
         btnGotoCheckView = (Button) findViewById(R.id.btn_gotocheck);
+        btnGotoLoaddingView = (Button) findViewById(R.id.btn_gotoloadding);
     }
 
     private void initEvent() {
@@ -40,11 +42,12 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
         btnGotoPrecentView.setOnClickListener(this);
         btnGotoConversion.setOnClickListener(this);
         btnGotoCheckView.setOnClickListener(this);
+        btnGotoLoaddingView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_gotobase:
                 gotoAct(BaseViewAct.class);
                 break;
@@ -56,13 +59,17 @@ public class MainAct extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.btn_gotocheck:
                 gotoAct(CheckAct.class);
+                break;
+            case R.id.btn_gotoloadding:
+                gotoAct(LoaddingAct.class);
+                break;
             default:
                 break;
         }
     }
 
-    private void gotoAct(Class<?> cls){
-        Intent intent = new Intent(this,cls);
+    private void gotoAct(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
         startActivity(intent);
     }
 }

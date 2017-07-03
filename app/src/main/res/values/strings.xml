@@ -19,4 +19,9 @@
     <string name="live">住:</string>
     <string name="walk">行:</string>
 
+    <!-- Loadding View -->
+    <string name="anim_duration_txt">当前动画时长 : </string>
+    <string name="leaf_swing">当前叶子振幅 : </string>
+    <string name="progress">当前进度 : </string>
+
 </resources>

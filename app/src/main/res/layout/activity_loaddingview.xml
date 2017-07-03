@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.huaweisoft.customviewdemo.View.LoaddingView
+        android:id="@+id/loaddingview"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:id="@+id/tv_anim_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前动画时长:"
+        style="@style/seekbar_txt_style"/>
+
+    <SeekBar
+        android:id="@+id/sk_set_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        style="@style/seekbar_style"/>
+
+    <TextView
+        android:id="@+id/tv_leaf_swing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前叶子振幅:"
+        style="@style/seekbar_txt_style"/>
+
+    <SeekBar
+        android:id="@+id/sk_set_leaf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        style="@style/seekbar_style"/>
+
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前进度:"
+        style="@style/seekbar_txt_style"/>
+
+    <SeekBar
+        android:id="@+id/sk_set_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        style="@style/seekbar_style"/>
+
+</LinearLayout>

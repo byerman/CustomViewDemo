@@ -9,5 +9,8 @@
     <color name="color_21to40">#B2DFEE</color>
     <color name="color_41to80">#CD8500</color>
     <color name="color_81to100">#CD2626</color>
-    
+
+    <!-- 进度条颜色 -->
+    <color name="color_progress">#FF8C00</color>
+    <color name="color_progress_blank">#ffffff</color>
 </resources>

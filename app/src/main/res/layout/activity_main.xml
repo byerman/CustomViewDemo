@@ -8,24 +8,35 @@
         android:id="@+id/btn_gotobase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="基础自定义View练习"/>
 
     <Button
         android:id="@+id/btn_gotoprecent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="百分比自定义View(圆弧,圆,文字)"/>
 
     <Button
         android:id="@+id/btn_gotoconversion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="画布变换操作(位移,缩放,旋转,错切)"/>
 
     <Button
         android:id="@+id/btn_gotocheck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="自定义CheckView(Bitmap,动画)"/>
+
+    <Button
+        android:id="@+id/btn_gotoloadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="自定义LoaddingView(圆弧,矩形,Bitmap,动画)"/>
 
 </LinearLayout>
