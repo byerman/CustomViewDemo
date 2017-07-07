@@ -1,6 +1,8 @@
 package com.huaweisoft.customviewdemo.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.SeekBar;
@@ -9,11 +11,15 @@ import android.widget.TextView;
 import com.huaweisoft.customviewdemo.R;
 import com.huaweisoft.customviewdemo.View.LoaddingView;
 
+import java.util.Random;
+
 /**
  * Created by baiaj on 2017/6/30.
  */
 
 public class LoaddingAct extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+
+    private static final int REFRESH_PROGRESS = 0x10;
 
     private LoaddingView loaddingView;
     private SeekBar durationBar;
@@ -22,6 +28,36 @@ public class LoaddingAct extends AppCompatActivity implements SeekBar.OnSeekBarC
     private TextView tvAnimDuration;
     private TextView tvLeafSwing;
     private TextView tvProgress;
+    private int mProgress;
+
+    Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case REFRESH_PROGRESS:
+                    if (mProgress == 100){
+                        return;
+                    }
+                    if (mProgress < 40) {
+                        mProgress += 1;
+                        // 随机800ms以内刷新一次
+                        mHandler.sendEmptyMessageDelayed(REFRESH_PROGRESS,
+                                new Random().nextInt(600));
+                        loaddingView.setProgress(mProgress);
+                    } else {
+                        mProgress += 1;
+                        // 随机1200ms以内刷新一次
+                        mHandler.sendEmptyMessageDelayed(REFRESH_PROGRESS,
+                                new Random().nextInt(400));
+                        loaddingView.setProgress(mProgress);
+
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        };
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +66,7 @@ public class LoaddingAct extends AppCompatActivity implements SeekBar.OnSeekBarC
         initView();
         initEvent();
         updateTxt();
+        mHandler.sendEmptyMessageDelayed(REFRESH_PROGRESS, 2000);
     }
 
     private void initView() {
