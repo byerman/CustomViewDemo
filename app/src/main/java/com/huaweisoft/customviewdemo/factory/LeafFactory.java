@@ -19,7 +19,7 @@ public class LeafFactory {
     private static final long LEAF_ROTATE_TIME = 2000;
     private static final int MAX_LEAFS = 6;
     Random random = new Random();
-    private int addTime;
+    private int addTime = 500;
 
     public Leaf generateLeaf() {
         Leaf leaf = new Leaf();
@@ -44,8 +44,8 @@ public class LeafFactory {
         // 随机旋转方向(顺时针或者逆时针)
         leaf.setRotateDirection(random.nextInt(2));
         // 随机开始时间
-        addTime = addTime + random.nextInt((int) (LEAF_FLOAT_TIME * 1.5));
         leaf.setStartTime(System.currentTimeMillis() + addTime);
+        addTime = addTime + random.nextInt((int) (LEAF_FLOAT_TIME * 1.5));
         return leaf;
     }
 

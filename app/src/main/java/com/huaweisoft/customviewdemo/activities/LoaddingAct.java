@@ -66,7 +66,7 @@ public class LoaddingAct extends AppCompatActivity implements SeekBar.OnSeekBarC
         initView();
         initEvent();
         updateTxt();
-        mHandler.sendEmptyMessageDelayed(REFRESH_PROGRESS, 2000);
+        mHandler.sendEmptyMessageDelayed(REFRESH_PROGRESS,2000);
     }
 
     private void initView() {

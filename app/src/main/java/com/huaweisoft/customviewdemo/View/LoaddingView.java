@@ -149,7 +149,7 @@ public class LoaddingView extends View {
     private long mAmplitude;
     // 叶子宽度,叶子高度
     private float leafWidth, leafHeight;
-    // isFanRotate
+    // 重绘时风扇是否需要旋转
     private boolean isFanRotate = true;
 
     public LoaddingView(Context context) {
@@ -307,7 +307,7 @@ public class LoaddingView extends View {
         }
         drawRotateFan(canvas, 30 * index, rightArcTopX + arcRadius, rightArcTopY + arcRadius);
         // 绘制叶子
-        if (progressState != PROGRESS_MAX && progressState != PROGRESS_NULL) {
+        if (progressState != PROGRESS_MAX) {
             drawLeafs(canvas);
         }
         // 绘制进度条
@@ -471,6 +471,6 @@ public class LoaddingView extends View {
     }
 
     private void sendHandleMsg(int what) {
-        mHandler.sendEmptyMessageDelayed(what, 150);
+        mHandler.sendEmptyMessage(what);
     }
 }
